@@ -1,28 +1,27 @@
 
 <h3>Post Show Page</h3> <br>
-<br>
+
 <strong>Title: </strong><%= @post.title%> <br>
 <strong>Content: </strong><%= @post.content%> <br>
 <strong>Categories: </strong>
+
 <% @post.categories.each do |cat| %>
   <%= cat.name %>
 <% end %>
 
 <h3>Comments:</h3>
-<li>
+  <li>
   <% @post.comments.each do |com| %>
-  <%= com.user.username %> says: <%= com.content%>
-</li>
+  <%= com.user_username %> says: <%= com.content%>
+  </li>
   <% end %>
 
 <h3>Users who have commented</h3>
 
-<% @post.users.distinct.each do |user|%>
+<% @post.unique_users.each do |user|%>
   <%= link_to user.username, user_path(user) %>
 <% end %>
-
 <br>
-
 
 <%= form_for @post.comments.build do |c| %>
   <%= c.hidden_field :post_id %>
