@@ -1,1 +1,10 @@
 
+<h3>User Show Page</h3>
+
+<h3><%= @user.username %>'s Comments:</h3>
+<br>
+<% @user.comments.each do |comment|  %>
+  <%= link_to comment.comment_post, post_path %> <br>
+  <%= comment.content %> <br>
+  <br>
+<% end%>
