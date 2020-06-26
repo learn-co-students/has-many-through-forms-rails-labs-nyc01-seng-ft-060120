@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ input:not([type="checkbox"]), textarea {
+   display: block;
+   margin: 1em 0;
+ }
